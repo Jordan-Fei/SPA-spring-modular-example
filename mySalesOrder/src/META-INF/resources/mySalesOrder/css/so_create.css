@@ -1,0 +1,4 @@
+/*Just a test example for how to load css lazy for view*/
+h2.function-title {
+	color: #00ffff;
+}

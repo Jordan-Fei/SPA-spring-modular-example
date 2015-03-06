@@ -1,0 +1,15 @@
+<div class="form-horizontal" data-ng-controller="soBrowseController">
+  <h2>Sales Order Browse</h2>
+  <div class="form-group">
+    <label for="cust_search" class="col-lg-2 control-label">Search Customer:</label>
+    <div class="col-lg-2">
+       <input type="text" class="form-control" id="cust_search" ng-model="cust_filter"></input>
+    </div>
+    <div class="col-lg-1">
+         <button type="submit" class="btn btn-default" ng-click="fiterSO()">Search</button>
+    </div>    
+  </div>
+  <div class="form-group">
+  <div class="col-lg-6 gridStyle soOrderView" ng-grid="gridOptions"></div>
+  </div>
+</div>

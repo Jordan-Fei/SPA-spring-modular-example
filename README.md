@@ -21,7 +21,7 @@ What we want to share with you in this project:
 Prerequisites to develop this project:  
 	JDK1.7 is installed  
 	Tomcat 7 is installed (mysql-connector-java-5.1.14.jar put into tomcat7/lib)  
-	STS IDE  
+	STS IDE(Changed default jdk to jdk1.7)  
 	M2Eclipse is installed in your STS IDE  
 	Mysql 5 is installed  
 
