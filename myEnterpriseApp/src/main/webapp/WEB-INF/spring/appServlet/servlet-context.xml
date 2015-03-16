@@ -12,7 +12,7 @@
 	<!-- <resources mapping="/soResources/**" location="/mySalesOrder/"/>  -->
 	
 	
-    <resources mapping="/resources/**" location="/resources/,/myCommon/,/mySalesOrder/"/>
+    <resources mapping="/resources/**" location="/resources/,/myCommon/,/mySalesOrder/"/> 
  
  
  <!--
