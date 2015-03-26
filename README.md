@@ -15,7 +15,8 @@ What we want to share with you in this project:
 	Spring restful web service  
 	Bootstrap UI  
 	Servlet 2.5 + web-fragment  
-	Maven build  
+	Maven build
+    Sprint Security	
 	...  
 
 Prerequisites to develop this project:  

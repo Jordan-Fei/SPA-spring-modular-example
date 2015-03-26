@@ -32,6 +32,7 @@ app.config([ '$routeProvider', '$httpProvider','$locationProvider','$controllerP
         
         resolve: {load:function($q, $rootScope, $route){
         	var deferred = $q.defer();
+        	
         	var dependencies =
                 [
                     '/myEnterpriseApp/resources/js/' + $route.current.params.businessObject + 'Service.js',
@@ -51,14 +52,17 @@ app.config([ '$routeProvider', '$httpProvider','$locationProvider','$controllerP
             
             return deferred.promise;
         }}
-    });
+    })
+    .when('/login',{
+    	templateUrl: 'resources/views/login.html'
+    })
 	/*
 	.otherwise({
         template: '<h1>Home</h1>',
         controller: function () {
             console.log('Home');
             }
-	});*/
+	})*/;
 	
 	$locationProvider.html5Mode(true);
 	

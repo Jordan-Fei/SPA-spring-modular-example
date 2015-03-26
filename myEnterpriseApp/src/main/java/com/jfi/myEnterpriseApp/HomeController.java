@@ -4,9 +4,15 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -55,11 +61,45 @@ public class HomeController {
 		logger.info("Request Page! The client locale is {}.", locale);
 		
 		return "home";
-	}	
+	}
+	
+	/**
+	 * This api is for front angularJS route on HTML5 Mode for login request.
+	 * @param locale
+	 * @param model
+	 * @return
+	 */	
+	@RequestMapping(value="/login", method = RequestMethod.GET)
+	public String login(){
+		logger.info("Request login page");
+		
+		return "home";
+	}
 	
 	@RequestMapping(value = "/menu", method = RequestMethod.GET,produces={"application/json"})
 	public @ResponseBody MenuItems GetMenu(){
 		return appMenu.GetAppMenus();
 	}
 	
+	/**
+	 * Authenticate username and password using http basic security.
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/authenticate", method = RequestMethod.GET,produces={"application/json"})
+	public @ResponseBody String Authenticate(HttpSession session){
+		logger.info("Run into Authenticate");
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		
+		if(authentication == null || !(authentication.getPrincipal() instanceof UserDetails)) {
+			return null;
+		}
+
+		Object path = session.getAttribute("OriginalPath");
+		if(path == null)
+		{
+			path = "/";
+		}
+		return path.toString();
+	} 
 }

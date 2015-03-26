@@ -1,7 +1,8 @@
 var app = angular.module('myEnterpriseApp', ['ngRoute','ui.bootstrap', 'ngGrid']);
 
-app.run(function($rootScope, $location, $timeout, $route) {
+app.run(function($rootScope, $location, $timeout, $route, AuthenticationService) {
 	$rootScope.baseUrl = "/myEnterpriseApp";
+	$rootScope.isMenuDisplay = true;
 	
 	$rootScope.$on("$locationChangeStart", function(event, next, current){
 		//$rootScope.loadResource($location.url());

@@ -16,8 +16,10 @@
 <script type='text/javascript' src="${pageContext.servletContext.contextPath}/resources/js/app.js"></script>
 <script type='text/javascript' src="${pageContext.servletContext.contextPath}/resources/js/config.js"></script>
 <script type='text/javascript' src="${pageContext.servletContext.contextPath}/resources/js/menuController.js"></script>
+<script type='text/javascript' src="${pageContext.servletContext.contextPath}/resources/js/loginController.js"></script>
 <script type='text/javascript' src="${pageContext.servletContext.contextPath}/resources/js/menuDirectives.js"></script>
 <script type='text/javascript' src="${pageContext.servletContext.contextPath}/resources/js/menuService.js"></script>
+<script type='text/javascript' src="${pageContext.servletContext.contextPath}/resources/js/authenticationService.js"></script>
 
 <!-- Need to be improved -->
 <!--  <script type='text/javascript' src="${pageContext.servletContext.contextPath}/resources/js/soService.js"></script>-->
@@ -63,7 +65,7 @@ for(String css: cssList){
 	</div>
 	
 	<!-- Dynamic Menus -->
-	<div data-ng-controller="MenuController" data-ng-init="init()">
+	<div data-ng-controller="MenuController" data-ng-init="init()" ng-show="isMenuDisplay">
 	   <ul class="nav nav-pills"><collection collection='menuItems'></collection></ul>
 	</div>
 
